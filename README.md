@@ -327,3 +327,381 @@ class B
 
 
 ---
+
+
+
+
+# August 29
+
+---
+
+1. Constructor overloading
+
+   * If the name of class where main method exists is public then the name of the file should be similar to
+    the name of the class otherwise you can name it anything(file).
+constructor_overloading.java:1: error: class Area is public, should be declared in a file named Area.java
+public class Area
+       ^
+1 error
+
+
+```java
+
+
+```
+
+
+---
+
+
+
+2. 
+
+```java
+class A
+{
+	public static void main(String args[])
+	{
+		B b=new B();
+		System.out.println(b.i);  //100
+		System.out.println(b.j);  //100
+	}
+}
+
+class C
+{
+	int i;
+	C(int c)
+	{
+		i=c;
+	}
+}
+class B extends C
+{
+	int j;
+	B()
+	{
+		super(10);
+
+		System.out.println("Let's see the value of j before j=i  "+j); //0 it is initialised to 0
+		j=i;
+	}
+}
+
+
+```
+
+3. Accessing the data members of parent in the child
+
+```java
+
+
+class A
+{
+	public static void main(String args[])
+	{
+		B obj=new B();
+		obj.show();
+	}
+}
+
+class B extends C
+{
+   int j=20;
+   void show()
+   {
+   	System.out.println(j+"- is the value of (j instance variable)");  //20
+   	System.out.println("I want to access parent i"+i);  //10 It is accessible because B is the child class
+   }
+}
+
+
+class C
+{
+	int i=10;
+}
+
+```
+
+
+
+4. Parent and child with the same named member function.
+
+```java
+
+class A
+{
+	public static void main(String args[])
+	{
+		B obj=new B();
+		obj.show();
+	}
+}
+
+class B extends C
+{
+   
+   void show()
+   {
+   	System.out.println("show of B");  //show of B ,because instance method of parent need to be called by super()
+
+   }
+}
+
+
+class C
+{
+	void show()
+	{
+		System.out.println("show method of parent C");
+	}
+}
+
+```
+
+
+5. A minute change in the above - calling parent show using super()
+
+```java
+
+class A
+{
+	public static void main(String args[])
+	{
+		B obj=new B();
+		obj.show();
+	}
+}
+
+class B extends C
+{
+   
+   B()
+   {
+   	super.show();
+   }
+
+   void show()
+   {
+   	System.out.println("show of B");  //show of B ,because instance method of parent need to be called by super()
+
+   }
+}
+
+
+class C
+{
+	void show()
+	{
+		System.out.println("show method of parent C");
+	}
+}
+
+
+
+```
+
+
+
+6. Constructor overloading.
+
+
+```java
+
+
+
+class A
+{
+	public static void main(String args[])
+	{
+		B obj=new B(10);
+		B obj_b=new B(7,11);
+		obj.area();
+		obj_b.area();
+	}
+}
+
+class B 
+{
+   int r,l,b;
+   B(int x)
+   {
+   	r=x;
+   }
+   B(int x,int y)
+   {
+   	l=x;
+   	b=y;
+   }
+
+   void area()
+   {
+   	if (r>0)
+   	{
+   		System.out.println(3.14*r*r);
+   	}
+
+   	if (l>0 && b>0)
+   	{
+   		System.out.println(l*b);
+   	}
+   }
+}
+
+
+```
+
+6. Use of this keyword
+
+```java
+
+
+class A
+{
+	public static void main(String args[])
+	{
+	   B obj=new B(10);
+	   obj.show();
+	}
+}
+
+class B 
+{
+   int i,j;
+   void show()
+   {
+   	System.out.println(i+j);
+   }
+
+   B(int x)
+   {
+   	  this(20,29);
+   	  i=x;
+   }
+
+   B(int x,int y)
+   {
+   	this(1,1,2);
+   	System.out.println("Seriously");
+   	j=x+y;
+   }
+   B(int x,int y,int z)
+   {
+   	System.out.println("Yippie 3 argumensts");
+   }
+
+}
+
+
+
+//Yippie 3 argumensts
+//Seriously
+//59
+```
+
+
+7.  Use of super and this simultaneously
+
+```java
+
+
+class A
+{
+	public static void main(String args[])
+	{
+       B obj=new B();
+       obj.display();
+	}
+}
+
+
+class B extends C
+{
+   void show()
+   {
+   	System.out.println("show of B ,child");
+   }
+   void display()
+   {
+   	show();
+   	super.show();
+   	this.show();
+   }
+}
+
+
+
+class C
+{
+	void show()
+	{
+		System.out.println("show method of C ,parent");
+	}
+}
+
+
+// show of B ,child
+// show method of C ,parent
+// show of B ,child
+
+
+```
+
+
+
+8. 
+
+```java
+
+class A
+{
+	public static void main(String args[])
+	{
+       B obj=new B(10);
+       B obj_b=new B();
+
+	}
+}
+
+
+class B extends C
+{
+  B()
+  {
+  	super(10);
+  	System.out.println("This is th econstructor of B without any argument but calling C's cons with 1 argument using super");
+  }
+
+  B(int x)
+  {
+  	super(x,x);
+ 	System.out.println("This is th econstructor of B with one  argument but calling C's cons with 2 argument using super");
+
+  }
+}
+
+
+
+class C
+{
+ 
+ C(int x)
+ {
+ 	System.out.println("Constructor of Class C with one argument");
+ }
+
+ C(int x,int y)
+ {
+ 	System.out.println("Constructor of class C with two arguments");
+ }
+
+}
+
+
+
+// Constructor of class C with two arguments
+// This is th econstructor of B with one  argument but calling C's cons with 2 argument using super
+// Constructor of Class C with one argument
+// This is th econstructor of B without any argument but calling C's cons with 1 argument using super
+
+```
