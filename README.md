@@ -335,27 +335,34 @@ class B
 
 ---
 
-1. Constructor overloading
+0. A class can contain no. of methods and those methods can use static or non-static variables directly.
+   * A method can declare a variable and this variable is called local variable .
+   * Java is strongly typed language it is vital to initialize variabel prior to use.
+   * Constructor never initialize constructor ?
+   > Local variable : stack\
+   > class variable : heap
+   * Local variable can have same name as of instance vairable. In that
+   case the local variable fights the scope of instance variable.
+
+
+1. We can differentiate local variable with instance variable by the help 
+of "this" keyword . __this__ keyword is used to refer current object of a class.
+
+2. This keyword can be used in three places
+    > with variable\
+     with class \
+    with constructor overloading
+
+3. Constructor overloading
 
    * If the name of class where main method exists is public then the name of the file should be similar to
     the name of the class otherwise you can name it anything(file).
 constructor_overloading.java:1: error: class Area is public, should be declared in a file named Area.java
-public class Area
-       ^
-1 error
+    public class Area
+           ^
+    1 error
 
-
-```java
-
-
-```
-
-
----
-
-
-
-2. 
+4. 
 
 ```java
 class A
@@ -391,73 +398,71 @@ class B extends C
 
 ```
 
-3. Accessing the data members of parent in the child
-
-```java
-
-
-class A
-{
-	public static void main(String args[])
-	{
-		B obj=new B();
-		obj.show();
-	}
-}
-
-class B extends C
-{
-   int j=20;
-   void show()
-   {
-   	System.out.println(j+"- is the value of (j instance variable)");  //20
-   	System.out.println("I want to access parent i"+i);  //10 It is accessible because B is the child class
-   }
-}
-
-
-class C
-{
-	int i=10;
-}
-
+5 . Accessing the data members of parent in the child
+    
+    ```java
+    
+    
+    class A
+    {
+        public static void main(String args[])
+        {
+            B obj=new B();
+            obj.show();
+        }
+    }
+    
+    class B extends C
+    {
+       int j=20;
+       void show()
+       {
+        System.out.println(j+"- is the value of (j instance variable)");  //20
+        System.out.println("I want to access parent i"+i);  //10 It is accessible because B is the child class
+       }
+    }
+    
+    
+    class C
+    {
+        int i=10;
+    }    
 ```
 
+6. Parent and child with the same named member function.
 
 
-4. Parent and child with the same named member function.
-
-```java
-
-class A
-{
-	public static void main(String args[])
-	{
-		B obj=new B();
-		obj.show();
-	}
-}
-
-class B extends C
-{
-   
-   void show()
-   {
-   	System.out.println("show of B");  //show of B ,because instance method of parent need to be called by super()
-
-   }
-}
-
-
-class C
-{
-	void show()
-	{
-		System.out.println("show method of parent C");
-	}
-}
-
-```
+    ```java
+    
+    class A
+    {
+        public static void main(String args[])
+        {
+            B obj=new B();
+            obj.show();
+        }
+    }
+    
+    class B extends C
+    {
+       
+       void show()
+       {
+        System.out.println("show of B");  //show of B ,because instance method of parent need to be called by super()
+    
+       }
+    }
+    
+    
+    class C
+    {
+        void show()
+        {
+            System.out.println("show method of parent C");
+        }
+    }
+    
+    ```
 
 
 5. A minute change in the above - calling parent show using super()
@@ -733,34 +738,42 @@ having method and child class also have method with same name  it is called meth
 We can override a method in child class if :
 
 > method name is same \
-> method signature is same \
-> return type differs
+  method signature is same \
+  return type differs
 
-3. Sometimes it is not required to override a method . We can prevent a method to be overridden by
-the help of final keyword.
+
+
+    3. Sometimes it is not required to override a method . We can prevent a method to be overridden by
+     the help of final keyword.
+                
    * Final keyword can be used with 
-    > with variable \
-    > with class \
-    > with method
 
-       * final with variable : We can declare a final variable as 
-       ```java
-       final int i
-       ```
+      > with variable \
+        with class \
+        with method
+
+   1. final with variable : We can declare a final variable as 
+   
        If a variable is final it will be initialiszed by contructor.
        It is vital to initialise a final variable explicitly but only once because its value will remain
        constant.
 
-       * final with class : If a class is final it can't be extended however can be used as usual.
+
+```java
+       final int i
+```
+
+    2. final with class : If a class is final it can't be extended however can be used as usual.
        We can create final class as
-       ```java
+
+   ```java
        final class C
        {
 
        }
-       ```
+   ```
 
-       * final with  method : If a method is final it can't be overridden but can be overloaded ,also can
+    3. final with  method : If a method is final it can't be overridden but can be overloaded ,also can
        be used as usual when we are overriding __a method with same of higher access privilege can 
        be used__.
 
@@ -773,34 +786,31 @@ the help of final keyword.
 >  Private
 
 
+
 5. Abstraction :  Sometimes it is vital to override a method in that case a method should be declared abstract
+
+   1. Abstract method are only declared not defined means they are like function prototype in C.
+   2. They are defined in those class who inherit the abstract class.
+   3. If any class have any abstract method __the class must be declared abstract__ converse ain't true.
+          i.e., If a class is abstract it ain't necessary that it will have abstract method too.
+    
+   4. We can't __instantiate__ abstract class because it may contain half implemented method i.e 
+        **abstract method** and compiler knows it.
+    
+   5. Abstract class may contain abstract or non-abstract mehtod . In order to make a class complete it 
+        should extend it.
+    
+
 ```java
 abstract void display()
 {
 
 }
+
 ```
-
-	* Abstract method are only declared not defined means they are like function prototype in C.
-	* They are defined in those class who inherit the abstract class.
-	* If any class have any abstract method __the class must be declared abstract__ converse ain't true.
-	  i.e., If a class is abstract it ain't necessary that it will have abstract method too.
-
-	* We can't __instantiate__ abstract class because it may contain half implemented method i.e 
-	**abstract method** and compiler knows it.
-
-	* Abstract class may contain abstract or non-abstract mehtod . In order to make a class complete it 
-	should extend it.
-
-	
 
 
 ---
-
-
-
-
-
 
 
 

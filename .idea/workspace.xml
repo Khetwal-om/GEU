@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acd8e8d4-86fc-4585-b978-e1d9195fc542" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/core-java-concepts/G.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/core-java-concepts/K.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/core-java-concepts/U.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/core-java-concepts/Z.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/core-java-concepts/initialize_boolean_within_constructor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/core-java-concepts/initialize_through_block.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/core-java-concepts/intialize_constructor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/core-java-concepts/writing_code_within_block_in_class.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contructor_initialising_the_values.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/initialize_boolean_within_constructor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/initialize_through_block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/intialize_constructor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static_and_instance_variable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/writing_code_within_block_in_class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/A.java" beforeDir="false" afterPath="$PROJECT_DIR$/A.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/B.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core-java-concepts/A.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/core-java-concepts/B.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/A.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/B.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/intialize_constructor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="190">
               <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
               <folding>
                 <element signature="e#84#85#0" expanded="true" />
@@ -95,17 +72,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="563">
-                <caret line="329" lean-forward="true" selection-start-line="329" selection-end-line="329" />
-                <folding>
-                  <element signature="e#122#123#0" expanded="true" />
-                  <element signature="e#167#168#0" expanded="true" />
-                  <element signature="e#128#129#0" expanded="true" />
-                  <element signature="e#173#174#0" expanded="true" />
-                  <element signature="e#126#127#0" expanded="true" />
-                  <element signature="e#171#172#0" expanded="true" />
-                </folding>
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="371">
+                <caret line="464" selection-start-line="464" selection-end-line="464" />
               </first_editor>
               <second_editor />
             </state>
@@ -161,7 +130,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,6 +152,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,17 +233,18 @@
       <workItem from="1566384442673" duration="2996000" />
       <workItem from="1566922514719" duration="2830000" />
       <workItem from="1566956007112" duration="2827000" />
+      <workItem from="1567185748764" duration="1694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8653000" />
+    <option name="totallyTimeSpent" value="10347000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17019667" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17246597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -320,10 +290,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/B.java" />
     <entry file="file://$PROJECT_DIR$/src/inputscanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intialize_constructor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+          <folding>
+            <element signature="e#84#85#0" expanded="true" />
+            <element signature="e#164#165#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -338,13 +320,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/B.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -366,30 +341,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/intialize_constructor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-          <folding>
-            <element signature="e#84#85#0" expanded="true" />
-            <element signature="e#164#165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="563">
-            <caret line="329" lean-forward="true" selection-start-line="329" selection-end-line="329" />
-            <folding>
-              <element signature="e#122#123#0" expanded="true" />
-              <element signature="e#167#168#0" expanded="true" />
-              <element signature="e#128#129#0" expanded="true" />
-              <element signature="e#173#174#0" expanded="true" />
-              <element signature="e#126#127#0" expanded="true" />
-              <element signature="e#171#172#0" expanded="true" />
-            </folding>
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="371">
+            <caret line="464" selection-start-line="464" selection-end-line="464" />
           </first_editor>
           <second_editor />
         </state>
