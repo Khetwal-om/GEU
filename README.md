@@ -705,3 +705,105 @@ class C
 // This is th econstructor of B without any argument but calling C's cons with 1 argument using super
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# August 30
+
+---
+1. In order to achieve run time polymorphism we have to extend a class . If parent class
+  have default constructor we can extend it without any super call. If a parent is not having
+  default constructor we have to call it using __super__ keyword.
+
+2. When we are extending a class successfully we are creating child parent relation, If a parent class
+having method and child class also have method with same name  it is called method overriding. 
+We can override a method in child class if :
+
+> method name is same \
+> method signature is same \
+> return type differs
+
+3. Sometimes it is not required to override a method . We can prevent a method to be overridden by
+the help of final keyword.
+   * Final keyword can be used with 
+    > with variable \
+    > with class \
+    > with method
+
+       * final with variable : We can declare a final variable as 
+       ```java
+       final int i
+       ```
+       If a variable is final it will be initialiszed by contructor.
+       It is vital to initialise a final variable explicitly but only once because its value will remain
+       constant.
+
+       * final with class : If a class is final it can't be extended however can be used as usual.
+       We can create final class as
+       ```java
+       final class C
+       {
+
+       }
+       ```
+
+       * final with  method : If a method is final it can't be overridden but can be overloaded ,also can
+       be used as usual when we are overriding __a method with same of higher access privilege can 
+       be used__.
+
+      
+4. There are four access specifiers
+
+>  Public \
+>  Protected \
+>  Default \
+>  Private
+
+
+5. Abstraction :  Sometimes it is vital to override a method in that case a method should be declared abstract
+```java
+abstract void display()
+{
+
+}
+```
+
+	* Abstract method are only declared not defined means they are like function prototype in C.
+	* They are defined in those class who inherit the abstract class.
+	* If any class have any abstract method __the class must be declared abstract__ converse ain't true.
+	  i.e., If a class is abstract it ain't necessary that it will have abstract method too.
+
+	* We can't __instantiate__ abstract class because it may contain half implemented method i.e 
+	**abstract method** and compiler knows it.
+
+	* Abstract class may contain abstract or non-abstract mehtod . In order to make a class complete it 
+	should extend it.
+
+	
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
