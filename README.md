@@ -812,8 +812,237 @@ abstract void display()
 
 ---
 
+# August 31
+
+---
+
+* Upcasting and downcasting are supported by java. In upcasting a parent class variable can hold...?
+
+* When we are using upcasting we can use only that method/data that is part of parent and access 
+through child.
+
+* When we are upcasting we can only use that data which is part of parent.
+* If a method is overridden the overridden method will be called but it should be part of parent.
+* We cannot override static method because they participate in early binding.
+* __dynamic method dispatch__  : When we are using upcasting we can use only methods of parent. In order
+to use child methods we have to downcast it . Downcast may fail  
+
+
+* Parent class should have display() method too.
+
+```java
+class A 
+{
+  public static void main(String args[])
+  {
+     C c=new B();  //upcasting
+     c.display();
+  }
+}
+
+class B extends C 
+{
+  void display()
+  {
+    System.out.println("This is the display of B - i.e child");
+  }
+}
+
+class C
+{
+  void displayy()
+  {
+    System.out.println("This is display of C i.e parent");
+  }
+}
+
+
+// A.java:6: error: cannot find symbol
+//      c.display();
+//       ^
+//   symbol:   method display()
+//   location: variable c of type C
+// 1 error
+
+```
+
+* Above error is fixed
+
+```java
+class A 
+{
+  public static void main(String args[])
+  {
+     C c=new B();  //upcasting
+     c.display();
+  }
+}
+
+class B extends C 
+{
+  void display()
+  {
+    System.out.println("This is the display of B - i.e child");
+  }
+}
+
+class C
+{
+  void display()
+  {
+    System.out.println("This is display of C i.e parent");
+  }
+}
+
+// This is the display of B - i.e child
+```
+
+* Now to use call display of C we have to downcast.
+---
+
+
+* Downcast but fail because holding reference of B but casted to D.
+
+* We can't instantiate abstract class but its reference variable can be created.
+* We can treat abstract class as a super class and concept of upcasting can be used.
 
 
 
+* Abstract class using the concept of downcasting
+
+```java
+class A 
+{
+  public static void main(String args[])
+  {
+    C c;
+    c=new Circle();
+    c.area();
+  }
+}
+
+class Circle extends C
+{
+  void area()
+  {
+    System.out.println("The area of circle is "+3.14*10*10);
+  }
+}
 
 
+
+abstract class C
+{
+  abstract void area();
+}
+
+// The area of circle is 314.0
+
+
+```
+
+* This won't call the display of child
+
+```java
+
+class N
+{
+  public static void main(String args[])
+  {
+    C c=new B();
+    c.display();
+  }
+}
+
+class B extends C
+{
+
+}
+
+class C
+{
+  void display()
+  {
+    System.out.println("display o f C");
+  }
+}
+
+// display o f C
+
+```
+
+* This will call the display of child 
+
+```java
+class N
+{
+  public static void main(String args[])
+  {
+    C c=new B();
+    c.display();
+  }
+}
+
+class B extends C
+{
+  void display()
+  {
+    System.out.println("display of B");
+  }
+}
+
+class C
+{
+  void display()
+  {
+    System.out.println("display o f C");
+  }
+}
+
+//display of B
+```
+
+* B can't be cast to D
+
+```java
+class A 
+{
+  public static void main(String args[])
+  {
+    C c=new B();  //upcasting
+    c.show1();
+
+    B b=(B)c;   //downcast
+    b.show1();
+
+    D d=(D)c;
+    d.show1();
+  }
+}
+
+class D extends C 
+{
+  void show1()
+  {
+    System.out.println("D");
+  }
+}
+
+class B extends C 
+{
+  void show1()
+  {
+     System.out.println("B");
+  }
+}
+
+class C 
+{
+  void show1()
+  {
+    System.out.println("C");
+  }
+}
+```
+
+* 

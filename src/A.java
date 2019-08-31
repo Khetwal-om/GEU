@@ -1,51 +1,35 @@
-
 class A
 {
-	public static void main(String args[])
-	{
-       B obj=new B(10);
-       B obj_b=new B();
-
-	}
-}
-
-
-class B extends C
-{
-  B()
+  public static void main(String args[])
   {
-  	super(10);
-  	System.out.println("This is th econstructor of B without any argument but calling C's cons with 1 argument using super");
-  }
-
-  B(int x)
-  {
-  	super(x,x);
- 	System.out.println("This is th econstructor of B with one  argument but calling C's cons with 2 argument using super");
-
+    C c;
+    c=new D();
+    c.show();
+    c=new B();
+    c.show();
   }
 }
-
-
 
 class C
 {
- 
- C(int x)
- {
- 	System.out.println("Constructor of Class C with one argument");
- }
-
- C(int x,int y)
- {
- 	System.out.println("Constructor of class C with two arguments");
- }
-
+  void show()
+  {
+    System.out.println("show of C");
+  }
 }
 
+class B extends C
+{
+  void show()
+  {
+    System.out.println("show of B");
+  }
+}
 
-
-// Constructor of class C with two arguments
-// This is th econstructor of B with one  argument but calling C's cons with 2 argument using super
-// Constructor of Class C with one argument
-// This is th econstructor of B without any argument but calling C's cons with 1 argument using super
+class D extends C
+{
+  void show()
+  {
+    System.out.println("show of D");
+  }
+}
