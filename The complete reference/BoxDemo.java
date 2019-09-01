@@ -1,18 +1,31 @@
-class BoxDemo
-{
+class InnerClassDemo{
 	public static void main(String[] args) {
-		Box obj=new Box();
-		obj.width=10;
-		obj.height=20;
-		obj.length=30;
-		double vol=obj.width*obj.height*obj.length;
-		System.out.println("Volume"+vol);
+
+		OuterClass ob=new OuterClass();
+		ob.test();
 	}
 }
 
-class Box
+
+class OuterClass
 {
-	double width;
-	double height;
-	double length;
+
+
+	int outer_x=11;
+
+
+    void test()
+	{
+		Inner obj=new Inner();
+		obj.display();
+		System.out.println();
+	}
+
+	class Inner
+	{
+		void display()
+		{
+			System.out.println("Display of Inner class"+outer_x);
+		}
+	}
 }
