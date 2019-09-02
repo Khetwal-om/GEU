@@ -617,6 +617,874 @@ class InnerClassDemo
 ```
 
 
+15. Inheritance
 
+```java
+class SimpleInheritance
+{
+	public static void main(String[] args) 
+	{
+		A parent=new A();
+		parent.i=7;
+		parent.j=11;
+		parent.showij();
+
+		B child=new B();
+		child.k=10;
+		child.i=20;
+		child.j=90;
+		child.showk();
+
+		child.sum();
+	}
+}
+
+
+
+class A
+{
+	int i,j;
+
+	void showij()
+	{
+		System.out.println("The values of i and j in the class A"+i+"   "+j);
+	}
+}
+
+class B extends A
+{
+	int k;
+	void showk()
+	{
+		System.out.println("The value of k in child class"+k);
+	}
+	void sum()
+	{
+		System.out.println("The sum of i,j,k is "+(i+j+k));
+	}
+}
+
+
+// The values of i and j in the class A7   11
+// The value of k in child class10
+// The sum of i,j,k is 120
+```
+
+
+16. A Superclass Variable Can Reference a Subclass Object A reference variable of a superclass can be assigned a reference to any subclass derived from that superclass.
+
+It is important to understand that it is the type of the reference variable—not the type of the object that it refers to—that determines what members can be accessed. That is, when a reference to a subclass object is assigned to a superclass reference variable, you will have access only to those parts of the object defined by the superclass. This is why plainbox can’t access weight even when it refers to a BoxWeight object. If you think about it, this makes sense, because the superclass has no knowledge of what a subclass adds to it. This is why the last line of code in the preceding fragment is commented out. It is not possible for a Box reference to access the weight field, because Box does not define one. 
+
+
+```java
+
+class BoxDemo
+{
+	public static void main(String[] args) {
+		BoxWeight weightbox=new BoxWeight(4,5,3,2);  //child
+		Box plainbox=new Box(10,10,10); //parent
+
+		double vol=weightbox.volume();
+		System.out.println("Volume of weightbox obj :  "+vol);
+
+		//Assigning parent reference to child
+
+		plainbox=weightbox;
+		vol=plainbox.volume();
+		System.out.println("Volume of plainbox obj using parent reference :  "+vol);
+
+		 /* The following statement is invalid because plainbox        does not define a weight member. */ //  System.out.println("Weight of plainbox is " + plainbox.weight); 
+
+
+
+	}
+}
+
+
+
+class Box
+{
+	double width;
+	double height;
+	double depth;
+
+
+	Box()
+	{
+		width=height=depth=-1;
+	}
+
+	Box(double w,double h,double d)
+	{
+		width=w;
+		height=h;
+		depth=d;
+	}
+
+	Box(Box obj)
+	{
+		width=obj.width;
+		height=obj.height;
+		depth=obj.depth;
+	}
+	double volume()
+
+	{
+		System.out.println("From parent --------");
+		return width*height*depth;
+	}
+}
+
+
+
+class BoxWeight extends Box
+{
+	double weight;
+
+	BoxWeight(double w,double h,double d,double wei)
+	{
+		width=w;
+		depth=d;
+		height=h;
+		weight=wei;
+	}
+
+	double volume()
+	{
+
+		System.out.println("From child --------");
+		return weight*depth*height*width;
+	}
+}
+
+// From child --------
+// Volume of weightbox obj :  120.0
+// From child --------
+// Volume of plainbox obj using parent reference :  120.0s
+
+```
+
+
+17. super has two general forms. The first calls the superclass’ constructor. The second is used to access a member of the superclass that has been hidden by a member of a subclass. 
+
+
+```java
+class BoxDemo
+{
+	public static void main(String[] args) {
+		BoxWeight weightbox=new BoxWeight(4,5,3,2);  //child
+		Box plainbox=new Box(10,10,10); //parent
+
+		double vol=weightbox.volume();
+		System.out.println("Volume of weightbox obj :  "+vol);
+
+		//Assigning parent reference to child
+
+		plainbox=weightbox;
+		vol=plainbox.volume();
+		System.out.println("Volume of plainbox obj using parent reference :  "+vol);
+
+
+
+	}
+}
+
+
+
+class Box
+{
+	double width;
+	double height;
+	double depth;
+
+
+	Box()
+	{
+		width=height=depth=-1;
+	}
+
+	Box(double w,double h,double d)
+	{
+		width=w;
+		height=h;
+		depth=d;
+	}
+
+	Box(Box obj)
+	{
+		width=obj.width;
+		height=obj.height;
+		depth=obj.depth;
+	}
+	double volume()
+
+	{
+		System.out.println("From parent --------");
+		return width*height*depth;
+	}
+}
+
+
+
+class BoxWeight extends Box
+{
+	double weight;
+
+	BoxWeight(double w,double h,double d,double wei)
+	{
+		super(w,h,d);
+		weight=wei;
+	}
+
+	double volume()
+	{
+
+		System.out.println("From child --------");
+		return weight*depth*height*width;
+	}
+}
+
+// From child --------
+// Volume of weightbox obj :  120.0
+// From child --------
+// Volume of plainbox obj using parent reference :  120.0
+
+```
+
+
+19. __super__ and it's uses
+
+A. super has two general forms. The first calls the superclass’ constructor. The second is used to access a member of the superclass that has been hidden by a member of a subclass.
+
+```java
+class DemoSuper
+{
+	public static void main(String[] args) {
+		
+		BoxWeight myBox1=new BoxWeight();
+		BoxWeight myBox2=new BoxWeight(10,20.23);
+		BoxWeight myBox3=new BoxWeight(10,20,15,34.33);
+		BoxWeight myBox4=new BoxWeight(myBox3);
+
+		System.out.println(myBox1.volume()+"Is the volume and weight is"+myBox1.weight);
+		System.out.println(myBox2.volume()+"is volume ,weight is"+myBox2.weight);
+		System.out.println(myBox3.volume()+"weight is"+myBox3.weight);
+		System.out.println(myBox4.volume()+"weight is"+myBox4.weight);
+
+	}
+}
+
+
+
+
+class Box
+{
+	private double width;
+	private double height;
+	private double depth;
+
+	Box()
+	{
+		width=height=depth=-1;   
+	}
+
+	Box(double len)
+	{
+		width=height=depth=len;
+	}
+
+	Box(double w,double h,double d)
+	{
+		width=w;
+		height=h;
+		depth=d;
+	}
+
+	Box(Box obj)
+	{
+		width=obj.width;
+		height=obj.height;
+		depth=obj.depth;
+	}
+
+	double volume()
+	{
+		return width*height*depth;
+	}
+
+}
+
+class BoxWeight extends Box
+{
+	double weight;
+	BoxWeight()
+	{
+		super();
+		weight=-1;
+	}
+
+	BoxWeight(double len,double w)
+	{
+		super(len);
+		weight=w;
+	}
+
+	BoxWeight(double w,double h,double d,double wei)
+	{
+		super(w,h,d);
+		weight=wei;
+	}
+
+	BoxWeight(BoxWeight obj)
+	{
+		super(obj);
+		weight=obj.weight;
+	}
+
+}
+
+
+// -1.0Is the volume and weight is-1.0
+// 1000.0is volume ,weight is20.23
+// 3000.0weight is34.33
+// 3000.0weight is34.33
+```
+
+
+B. The second form of super acts somewhat like this, except that it always refers to the superclass of the subclass in which it is used.
+  
+  * This second form of super is most applicable to situations in which member names  of a subclass hide members by the same name in the superclass.
+
+```java
+class A
+{
+	int i;
+}
+
+class B extends A
+{
+	int i;
+
+	B(int a,int b)
+	{
+		super.i=a;  // i in A
+		i=b;  //       i in B
+
+	}
+
+	void display()
+	{
+		System.out.println("i in the superclass"+super.i);
+		System.out.println("i in the subclass  "+i);
+	}
+}
+
+class UseSuper
+{
+	public static void main(String[] args) {
+		B obj=new B(7,10);
+		obj.display();
+	}
+}
+
+i in the superclass7
+i in the subclass  10
+
+```
+
+
+
+
+
+20. Multilevel Inheritance
+
+```java
+class Box
+{
+	double width;
+	double height;
+	double depth;
+	Box()
+	{
+		width=height=depth=-1;
+	}
+
+	Box(double len)
+	{
+		width=height=depth=len;
+	}
+
+	Box(double w,double h,double d)
+	{
+		width=w;
+		height=h;
+		depth=d;
+	}
+
+	Box(Box obj)  //clone
+	{
+		width=obj.width;
+		height=obj.height;
+		depth=obj.depth;
+	}
+
+	double volume()
+	{
+		return height*width*depth;
+	}
+}
+
+class BoxWeight extends Box
+{
+	double weight;
+
+	BoxWeight()
+	{
+		super();
+		weight=-1;
+	}
+
+	BoxWeight(double len,double wei)
+	{
+		super(len);
+		weight=wei;
+	}
+
+	BoxWeight(double w,double h,double d,double wei)
+	{
+		super(w,h,d);
+		weight=wei;
+	}
+
+	BoxWeight(BoxWeight obj)
+	{
+		super(obj);
+		weight=obj.weight;
+	}
+}
+
+class ShipMent extends BoxWeight
+{
+	double cost;
+
+	ShipMent()
+	{
+		super();
+		cost=-1;
+	}
+
+	ShipMent(double len,double wei,double c)
+	{
+		super(len,wei);
+		cost=c;
+	}
+
+	ShipMent(double w,double h,double d,double wei,double c)
+	{
+		super(w,h,d,wei);
+		cost=c;
+	}
+
+	ShipMent(ShipMent obj)
+	{
+		super(obj);
+		cost=obj.cost;
+	}
+}
+
+
+
+class DemoShipment
+{
+	public static void main(String[] args) {
+		ShipMent obj=new ShipMent(10,20,15,10,3.41);
+		ShipMent obj_b=new ShipMent(2,3,4,0.76,1.28);
+	
+
+		double vol=obj.volume();
+		System.out.println(vol+"      "+obj.weight+"       $ "+obj.cost);
+
+	    vol=obj_b.volume();
+		System.out.println(vol+"      "+obj_b.weight+"       $ "+obj_b.cost);
+
+
+	}
+}
+
+// 3000.0      10.0       $ 3.41
+// 24.0      0.76       $ 1.28
+```
+
+21. The way constructors are called
+
+```java
+
+
+class callingCons
+{
+	public static void main(String[] args) {
+		C obj=new C();
+	}
+}
+
+class A
+{
+	A()
+	{
+		System.out.println("A");
+	}
+
+}
+
+class B extends A
+{
+	B()
+	{
+		super();
+		System.out.println("B");
+	}
+}
+
+class C extends B
+{
+	C()
+	{
+		super();
+		System.out.println("C");
+	}
+}
+
+// A
+// B
+// C
+
+```
+
+22. Method Overriding
+
+```java
+
+class Override
+{
+	public static void main(String[] args) {
+		B obj=new B(7,10,11);
+		obj.display();
+	}
+}
+
+class A
+{
+	int i,j;
+	A(int a,int b)
+	{
+		i=a;
+		j=b;
+	}
+
+	void display()
+	{
+		System.out.println(i+"    "+j);
+	}
+}
+
+class B extends A
+{
+	int k;
+	B(int a,int b,int c)
+	{
+		super(a,b);
+		k=c;
+	}
+
+	void display()
+	{
+
+		System.out.println(k);
+	}
+}
+
+//11
+
+```
+> Calling method display of parent using super .
+
+```java
+class Override
+{
+	public static void main(String[] args) {
+		B obj=new B(7,10,11);
+		obj.display();
+	}
+}
+
+class A
+{
+	int i,j;
+	A(int a,int b)
+	{
+		i=a;
+		j=b;
+	}
+
+	void display()
+	{
+		System.out.println(i+"    "+j);
+	}
+}
+
+class B extends A
+{
+	int k;
+	B(int a,int b,int c)
+	{
+		super(a,b);
+		k=c;
+	}
+
+	void display()
+	{
+		super.display();
+		System.out.println(k);
+	}
+}
+
+
+// 7    10
+// 11
+```
+
+
+23. Dynamic method dispatch
+
+> a superclass reference variable can refer to a subclass object
+
+```java
+class A
+{
+	void callme()
+	{
+		System.out.println("Inside A's callme ");
+	}
+
+}
+
+class B extends A
+{
+	void callme()
+	{
+		System.out.println("Inside B's callme ");
+	}
+}
+
+class C extends A
+{
+	void callme()
+	{
+		System.out.println("Inside C's callme :)");
+	}
+}
+
+class Dispatch
+{
+	public static void main(String[] args) {
+		A a=new A();  
+		B b=new B();
+		C c=new C();
+
+
+		A ref;
+
+		ref=a;
+		ref.callme();
+
+		ref=b;
+		ref.callme();
+
+		ref=c;
+		ref.callme();
+	}
+}
+
+
+// Inside A's callme
+// Inside B's callme
+// Inside C's callme :)
+
+
+```
+
+
+22. Implementation of  method overriding
+
+> Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time. Dynamic method dispatch is important because this is how Java implements run-time polymorphism.\
+
+A superclass reference variable can refer to a subclass object. Java uses this fact to resolve calls to overridden methods at run time. Here is how. When an overridden method is called through a superclass reference, Java determines which version of that method to execute based upon the type of the object being referred to at the time the call occurs. Thus, this determination is made at run time. When different types of objects are referred to, different versions of an overridden method will be called.\
+In other words, it is the type of the object being referred to (not the type of the reference variable) that determines which version of an overridden method will be executed. Therefore, if a superclass contains a method that is overridden by a subclass, then when different types of objects are referred to through a superclass reference variable, different versions of the method are executed.
+
+```java
+class Figure
+{
+	double dim1;
+	double dim2;
+
+	Figure(double a,double b)
+	{
+		dim1=a;
+		dim2=b;
+	}
+
+	double area()
+	{
+		System.out.println("within Figure");
+		return 0;
+	}
+}
+
+class Rectangle extends Figure
+{
+	Rectangle(double a,double b)
+	{
+		super(a,b);
+	}
+
+	double area()
+	{
+		System.out.println("Within area of rectangle");
+		return dim1*dim2;
+	}
+
+
+}
+
+class Triangle extends Figure
+{
+	Triangle(double a,double b)
+	{
+		super(a,b);
+	}
+
+
+	double area()
+	{
+		System.out.println("Within Trianlge");
+		return dim1*dim2/2;
+	}
+}
+
+class FindArea
+{
+	public static void main(String[] args) {
+		Figure fobj=new Figure(30,7);
+
+
+		Rectangle robj=new Rectangle(2,5);
+	
+
+		Triangle tobj=new Triangle(10,11);
+
+		// System.out.println(fobj.area());
+		// System.out.println(tobj.area());
+		// System.out.println(robj.area());
+
+		System.out.println("---------------");
+		Figure ref;
+		ref=robj;
+		System.out.println(ref.area());
+
+		ref=tobj;
+		System.out.println(ref.area());
+
+	}
+}
+
+// Within area of rectangle
+// 10.0
+// Within Trianlge
+// 55.0
+
+```
+
+22. Dynamic dispatch using Abstract class
+
+```java
+
+abstract class Figure 
+{
+	double dim1;
+	double dim2;
+
+
+	Figure(double a,double b)
+	{
+		dim1=a;
+		dim2=b;
+	}
+
+	abstract double area();
+}
+
+class Rectangle extends Figure
+{
+	Rectangle(double a,double b)
+	{
+		super(a,b);
+
+	}
+
+	double area()
+	{
+		System.out.println("Rectanlge class");
+		return dim1*dim2;
+	}
+}
+
+class Triangle extends Figure
+{
+	Triangle(double a,double b)
+	{
+		super(a,b);
+	}
+
+	double area()
+	{
+		System.out.println("Triangle class");
+		return dim1*dim2/2;
+	}
+}
+
+class AbstractClass
+{
+	public static void main(String[] args) {
+		Rectangle robj=new Rectangle(10,7);
+
+		Triangle tobj=new Triangle(11,11);
+
+		Figure ref;
+
+		ref=robj;
+
+		System.out.println(ref.area());
+
+		ref=tobj;
+		System.out.println(ref.area());
+	}
+}
+
+
+
+// Rectanlge class
+// 70.0
+// Triangle class
+// 60.5
+```
+
+
+23. __final__
+   a. final is used to declare a constant value.
+   b. prevent overriding.
+
+   > Methods declared as final can sometimes provide a performance enhancement: The compiler is free to inline calls to them because it “knows” they will not be overridden by a subclass. When a small final method is called, often the Java compiler can copy the bytecode for the subroutine directly inline with the compiled code of the calling method, thus eliminating the costly overhead associated with a method call. Inlining is an option only with final methods.\
+    Normally, Java resolves calls to methods dynamically, at run time. This is called late binding. However, since final methods cannot be overridden, a call to one can be resolved at compile time. This is called early binding.
 
 ---
+

@@ -7,6 +7,7 @@ class A
     c.show();
     c=new B();
     c.show();
+    
   }
 }
 
