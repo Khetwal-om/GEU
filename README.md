@@ -1046,3 +1046,537 @@ class C
 ```
 
 * 
+
+
+
+---
+
+# Sept 6
+
+1. __Variable length arguments__
+
+We can use variable length arguments passed into a method after jdk1.5
+
+```java
+ 
+ void show(int ...x)
+ {
+
+ }
+ or 
+ void show(object ...x)
+ {
+
+ }
+
+```
+
+* Consider the following example
+
+
+```java
+class Args
+{
+  public static void main(String[] args) {
+    B b=new B();
+    int a[]={7,4,46,344};
+    b.show(10,a);
+  }
+}
+
+class B 
+{
+  void show(int z,int ...x)
+  {
+    System.out.println(z);
+    System.out.println(x);
+
+    for(int i:x)
+    {
+      System.out.print(i+"  ");
+    }
+
+  }
+}
+
+
+// 10
+// [I@368239c8
+// 7  4  46  344
+```
+
+
+
+
+---
+
+## An object can be final but it's underlying variables can still be changed.
+
+
+2. Consider the final array. Array is final but still we can change it's elements.
+
+
+```java
+class Args
+{
+  public static void main(String[] args) {
+    B b=new B();
+    b.show();
+    b.a[3]=999;
+    System.out.println("After changing the values-----------------");
+    b.show();
+  }
+}
+
+class B 
+{
+  final int a[]={12,34,46,65,34};
+
+
+  void show()
+  {
+    for(int i:a)
+    {
+      System.out.println(i);
+    }
+  }
+}
+
+
+// 12
+// 34
+// 46
+// 65
+// 34
+// After changing the values-----------------
+// 12
+// 34
+// 46
+// 999
+// 34 
+
+```
+
+
+3. We can create array of objects too.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Passing an array to the function
+
+```java
+import java.io.*;
+
+class Args
+{
+  public static void main(String[] args) {
+    int a[]={};
+    System.out.println(a);
+    B obj=new B();
+    obj.show(10,20);
+  }
+}
+
+class B
+{
+  void show(int ...x)
+  {
+    System.out.println(x.length);
+
+    for (int i : x) {
+      System.out.println(i);
+    }
+  }
+}
+```
+
+5. If we are passing an entire array to a function using ... then the array must be the last argument
+while calling the function. The following void show() can't be defined as .
+
+```java
+
+void show(int ...x,int z)
+{
+    //error
+}
+
+```
+
+```java
+
+import java.io.*;
+
+class Args
+{
+  public static void main(String[] args) {
+
+    int array[]={1,2,3,4,5};
+    B obj=new B();
+    obj.show(7,array);
+  }
+}
+
+class B
+{
+  void show(int z,int ...x)
+  {
+
+    System.out.println("Z =  "+z);
+
+    for (int i : x) {
+      System.out.print(i+"      ");
+    }
+  }
+}
+
+// Z =  7
+// 1      2      3      4      5
+```
+
+
+6. The arguments passed during command line can be final
+
+```java
+
+
+class Args
+{
+  public static void main(final String ...args) {
+
+    System.out.println("Arguments passed");
+    System.out.println("--------");
+    System.out.println(args);
+
+
+  }
+}
+
+
+
+```
+
+7. Final obj can't be assigned new memory location
+
+```java
+
+class Args
+{
+  public static void main(final String ...args) {
+
+    final B obj=new B();
+    obj=new B();
+
+
+  }
+}
+
+class B
+{
+  final int i=3;
+}
+```
+
+
+8. Even if the array is Final it too can't be assigned new memory
+
+```java
+
+class Args
+{
+  public static void main(final String ...args) {
+
+    B obj=new B();
+
+
+    obj.a=new int[4];
+
+
+  }
+}
+
+class B
+{
+  final int a[]={1,2,3,4,5,6,8};
+}
+```
+
+
+9. Even though the array is declared final we can still update it's values
+
+```java
+
+
+class Args
+{
+  public static void main(final String ...args) {
+
+
+    B obj=new B();
+
+
+      for (int i : obj.a) {
+      System.out.print(i+"   ");
+    }
+
+
+    System.out.println("Before-------------------");
+
+    System.out.println("After------------------------");
+    obj.a[3]=7;
+    for (int i : obj.a) {
+      System.out.print(i+"   ");
+    }
+
+  }
+}
+
+class B
+{
+  final int a[]={1,2,3,4,5,6,8};
+}
+
+
+
+
+
+
+
+// 1   2   3   4   5   6   8   Before-------------------
+// After------------------------
+// 1   2   3   7   5   6   8
+
+
+```
+
+10. The default values assigned to an array elements are null.
+
+```java
+
+
+class Args
+{
+  public static void main(final String ...args) {
+
+
+    B b=new B();
+    B c=new B();
+
+    B array[]=new B[2];
+    System.out.println(array[0]);
+
+    System.out.println(array[1]);
+
+
+  }
+}
+
+class B
+{
+
+}
+
+
+
+
+
+```
+
+
+12. 
+
+```java
+
+
+class Args
+{
+  public static void main(final String ...args) {
+
+
+    B b=new B();
+    B c=new B();
+
+    B array[]=new B[2];
+
+    array[0]=b;
+    array[1]=c;
+
+    System.out.println(array[0]);
+
+    System.out.println(array[1]);
+  }
+}
+
+class B
+{
+
+}
+
+
+
+B@4aa8f0b4
+B@9e89d68
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+. Overriding the toString method of String  class.
+
+
+```java
+class Args
+{
+  public static void main(String[] args) {
+    
+
+    char array[]={'a','b','c','d','e','f'};
+    String1 obj=new String1(array);
+    System.out.println(obj);
+}
+}
+
+
+class String1
+{
+  String1(char f[])
+  {
+
+  }
+
+  public String toString()
+  {
+    return "yie";
+  }
+}
+```
+
+
+# sept 7
+
+1. We can initialize a string object by some string literal constant also.
+   String s="abc"
+
+   * We can use several method of string to manipulate string object
+
+```java
+
+
+String s="vale";
+char c=s.charAt(0);  //v
+int length_s=s.length()
+
+```
+
+
+
+2. Comparision of two string objects can be done in the following ways-
+
+> ==     always checks reference and returns boolean value  \
+> equals() checks reference when the equals() method belongs to  object class but it checks values
+of two string objects when equals() method belong to String class \
+e> compareTo() returns 0 when if two values are identical otherwise first non-matching character
+ascii difference. __If one string is subset of another length difference is returned__ .
+
+
+```java
+class A
+{
+  public static void main(String[] args) {
+    String s1="accd";
+    String s2="acc";
+
+    System.out.println("This is ==      :      "+(s1==s2));  //false
+    System.out.println("Equals method   :   "+s1.equals(s2)); //false
+    System.out.println("Compareto method:   "+s1.compareTo(s2)); // 1
+  }
+}
+
+
+
+
+class A
+{
+  public static void main(String[] args) {
+    String s1="acc";
+    String s2="acc";
+
+    System.out.println("This is ==      :      "+(s1==s2));//true
+    System.out.println("Equals method   :   "+s1.equals(s2));//true
+    System.out.println("Compareto method:   "+s1.compareTo(s2));//0
+  }
+}
+
+```
+
+* Check the difference
+
+If we are initialising a string by some string literal constant as
+
+```java
+String s1="abc";
+String s2="abc"; 
+```
+   * Both refer to the same thing.
+   * In this case memory to abc will be allocated by __JVM__ in separate __area of heap String constant pool__.
+
+
+
+```java
+
+class A
+{
+  public static void main(String[] args) {
+    String s1="acc";
+    String s2="acc";
+
+    System.out.println("This is ==      :      "+(s1==s2));   //true
+    System.out.println("Equals method   :   "+s1.equals(s2));//true
+    System.out.println("Compareto method:   "+s1.compareTo(s2));//0
+  }
+}
+
+```
+
+   * But when memory is assigned with 
+help of new keyword ,a new memory location is created always which unequivocably difference from String s="hola".
+
+class A
+{
+  public static void main(String[] args) {
+    String s1=new String("acc");
+    String s2=new String("acc");
+
+    System.out.println("This is ==      :      "+(s1==s2));   //false
+    System.out.println("Equals method   :   "+s1.equals(s2));//true
+    System.out.println("Compareto method:   "+s1.compareTo(s2));//0
+  }
+}
+  
+```
