@@ -1,35 +1,38 @@
-class Args
-{
-
+class Args{
 	public static void main(String[] args) {
-	
-		B b1=new B("james");
-		B b2=new B("levy");
-		System.out.println(b1.equals(b2));
+		
 	}
 }
 
-B 
+
+class Switch
 {
-	String s;
-
-	B(String s)
+	public static Switch(Switch[] switches,double area)
 	{
-		this.s=s;
-	}
-
-	public boolean equals(Object o)
-	{
-		String r=B(String);
-		if(s.equals(r.s))
-		{
-		return true;
-		}
-		else
-		{
-			return false;
-		}
-
+       
 	}
 }
 
+
+
+// class Args{
+// 	public static void main(String[] args) {
+// 		Switch obj=new Switch();
+// 		boolean answer=Switch.CheckBrandAndType(obj,"Nike","Jordan");
+// 		System.out.println(answer);
+// 	}
+// }
+
+
+// class Switch
+// {
+// 	static String t="Nike";
+// 	static String b="Jordan";
+// 	public static boolean CheckBrandAndType(Switch S,String type,String brand)
+// 	{
+//          if (t.equals(type) && b.equals(brand))
+//          	return true;
+//          else
+//          	return false;
+// 	}
+// }

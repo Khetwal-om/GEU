@@ -1051,6 +1051,30 @@ class C
 
 ---
 
+
+
+# Sept 5
+
+1. Array is a collection of similar data type. Arrays are object in java as well as we 
+can create array of obejct in java as well. We can declare array locally as well as a part of class.
+
+> We can declare an array as well as initialize it as a variable. \
+ There is strict upper bound check in java means if we are having 5 elements we can use only those
+  memory locations which are already initialized . \
+  We can initialize an  array later on by providing memory using new keyword.\
+  int [] array; Leads to faster execution?\
+  We can create 2D arrays as 1D arrays\
+  
+   * 2D arrays are __collection of 1D arrays__ in form of rows and columns.
+
+```java
+
+int a=10;
+int array_a={a,a,a,a,a};
+int array_b={{a,7,11,13},{a,9,8,7,6},{a},{a,12,7,6,99}}
+
+```
+
 # Sept 6
 
 1. __Variable length arguments__
@@ -1565,7 +1589,10 @@ class A
 ```
 
    * But when memory is assigned with 
-help of new keyword ,a new memory location is created always which unequivocably difference from String s="hola".
+help of new keyword ,a new memory location is created always which unequivocably different from String s="hola".
+
+
+```java
 
 class A
 {
