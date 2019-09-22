@@ -1607,3 +1607,377 @@ class A
 }
   
 ```
+
+# 14 September
+
+---
+
+1. Boxing converts a primitive data type to an object. __autoboxing__ do this by
+   default.
+   > The Vector class in java work internally as array of objects.\
+     It have various methods to perform various operations.\
+      size() method tells the size of vector\
+      addElement(argument)  adds element at end in the vector\
+      add(argument) also adds element to vector.
+      
+     
+
+
+```java
+import java.util.*;
+
+
+public class A
+{
+	public static void main(String args[])
+	{
+		Integer i=9;  //autoboxing
+		Double d=11.9;
+		String s="icardi";
+
+		Vector v=new Vector();
+		v.addElement(i);
+		v.addElement(d);
+		v.addElement(s);
+		System.out.println(v);
+	}
+}
+
+//D:\GEU\Semester_fifth\core-java-concepts>javac A.java
+//	
+//
+//		D:\GEU\Semester_fifth\core-java-concepts>java A
+//		[9, 11.9, icardi]
+
+```
+
+
+---
+
+
+
+2. Fix the given error
+
+
+	Note: A.java uses unchecked or unsafe operations.
+	Note: Recompile with -Xlint:unchecked for details.
+	
+	
+3. HashSet performs similar to Vector but it never store objects with same reference
+ or same values aren't stored in __HashSet__.
+ 
+ > add() appends an element at the end.\
+   addElement() doesn't works here?
+    
+    
+4. We can't add two objects of Object class or any other class. Inorder to perform
+ a mathematical operation on integer or double we must __downcast them__.
+ 
+ ```java
+
+import java.util.*;
+        
+        
+        public class A
+        {
+        	public static void main(String args[])
+        	{
+        
+        		B obj=new B();
+        		Object o=obj.show(7);
+        
+        		System.out.println(o+o);
+        
+        	}
+        }
+        
+        
+        class B
+        {
+        	Object show(Integer i)
+        	{
+        			return i;
+        	}
+        
+        }
+        
+        
+        A.java:12: error: bad operand types for binary operator '+'
+        		System.out.println(o+o);
+        		^
+        		first type:  Object
+        		second type: Object
+        		1 error
+```
+
+
+> On resolving above by downcasting.
+
+
+1. __Approach One__
+
+```java
+
+import java.util.*;
+
+
+public class A
+{
+	public static void main(String args[])
+	{
+
+		B obj=new B();
+		Integer o=obj.show(7);
+
+		System.out.println(o+o);
+
+
+
+	}
+}
+
+
+class B
+{
+	Integer show(Integer i)
+	{
+			return i;
+	}
+
+}
+
+
+
+
+```
+
+
+2. __Approach two__
+
+
+```java
+
+```
+
+
+5. The given array of objects perform same as Vector class object. This 
+implies that internally vector class uses object array.
+
+ > Since memory was assigned with help of new keyword , the compiler always
+   initialize the objects with null values.
+
+```java
+
+import java.util.*;
+
+
+public class A
+{
+	public static void main(String args[])
+	{
+
+		B obj=new B();
+		obj.add("a");
+		obj.add("b");
+		obj.add("c");
+		obj.display();
+
+
+
+	}
+}
+
+
+class B
+{
+	static int m=0;
+
+	Object o[]=new Object[10];
+
+	void add(Object i)
+	{
+		o[m++]=i;
+	}
+
+	void display()
+	{
+		// Since o is an array , we can iterate over it
+		for (int i=0;i<o.length;i++)
+		{
+			System.out.println(o[i]);
+		}
+	}
+}
+
+
+	a  
+	b
+    c
+		null
+		null
+		null
+		null
+		null
+		null
+		null
+
+
+
+```
+
+* We can now say that internally array of object is stored as we are able to 
+  store Integer,Double,String in a single array.
+
+```java
+import java.util.*;
+
+
+public class A
+{
+	public static void main(String args[])
+	{
+
+		B obj=new B();
+		obj.add("a");
+		obj.add(3.34);
+		obj.add(4);
+		obj.display();
+
+
+
+	}
+}
+
+
+class B
+{
+	static int m=0;
+
+	Object o[]=new Object[10];
+
+	void add(Object i)
+	{
+		o[m++]=i;
+	}
+
+	void display()
+	{
+		// Since o is an array , we can iterate over it
+		for (int i=0;i<o.length;i++)
+		{
+			System.out.println(o[i]);
+		}
+	}
+}
+
+
+
+
+D:\GEU\Semester_fifth\core-java-concepts>java A
+		a
+		3.34
+		4
+		null
+		null
+		null
+		null
+		null
+		null
+		null
+
+		D:\GEU
+		
+		
+```
+
+
+#Questions fix me
+
+```java
+import java.util.*;
+
+
+public class A
+{
+	public static void main(String args[])
+	{
+
+
+		String a="abc332k23";
+		String answer[]=new String[10];
+
+		int len=a.length();
+
+		while(len!=0)
+		{
+			if (c.isDigit())
+			{
+				Character c = Character.parseInt(a(len));
+				System.out.println(c);
+			}
+
+			len--;
+		}
+
+
+	}
+}
+
+
+
+
+
+
+
+
+//import java.util.*;
+//
+//
+//public class A
+//{
+//	public static void main(String args[])
+//	{
+//
+//		B obj=new B();
+//		obj.add("a");
+//		obj.add(3.34);
+//		obj.add(4);
+//		obj.display();
+//
+//
+//
+//	}
+//}
+//
+//
+//class B
+//{
+//	static int m=0;
+//
+//	Object o[]=new Object[10];
+//
+//	void add(Object i)
+//	{
+//		o[m++]=i;
+//	}
+//
+//	Object addElementsAt(int i)
+//	{
+//
+//	}
+//
+//	void display()
+//	{
+//		// Since o is an array , we can iterate over it
+//		for (int i=0;i<o.length;i++)
+//		{
+//			System.out.println(o[i]);
+//		}
+//	}
+//}
+//
+//
+//
+//
+
+```

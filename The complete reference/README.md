@@ -1561,3 +1561,49 @@ class JavaArrays
 // 93  23
 
 ```
+
+
+
+
+# Sept 19
+
+---
+
+#### Conversion
+
+
+1. Boxing : converting primitive data type to an object
+
+```java
+
+class D
+{
+	public static void main(String[] args) {
+		int value=10;  // primitive data type
+		Integer valueobj=new Integer(value);
+
+		System.out.println("Primitive               one :"+value);
+		System.out.println("Objec of primitive datatype :"+valueobj);
+
+
+		System.out.println("Operation of primitive      :"+value*10);
+		System.out.println("Object of primitive         :"+valueobj*100);
+
+			
+	}
+}
+
+Primitive               one :10
+Objec of primitive datatype :10
+Operation of primitive      :100
+Object of primitive         :1000
+
+```
+
+2. Converting object to primitive datatype
+
+```java
+
+```
+
+---

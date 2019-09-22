@@ -42,3 +42,16 @@ class Light
 
 
 
+
+// site   null
+// no of watts 0
+// site   false
+// The object     :Light@2d6d8735
+// The object     :Light@2d6d8735
+// *************************************
+// site   loft
+// no of watts 100
+// site   true
+// no. of watts    :100
+// Indicator       :true
+// Location        :loft
