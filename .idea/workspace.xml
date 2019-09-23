@@ -2,41 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acd8e8d4-86fc-4585-b978-e1d9195fc542" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/A.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/A.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Area.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/B.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Circle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/ExtendInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/FamousLine.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/FixedStack.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Hybrid.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Hybrid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/IntStack.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/ItemConstants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/NewCircle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/NewShape.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/NovelA.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/NovelB.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Rectangle.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Results.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Shape.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Shphere.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Sphere.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Sports.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Student.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/10Interfaces/Test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/9 Arrays Strings and vectors/A.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/9 Arrays Strings and vectors/A.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/9 Arrays Strings and vectors/B.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/balaguruswamy/9 Arrays Strings and vectors/java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lecture/A.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lecture/B.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A.class" beforeDir="false" afterPath="$PROJECT_DIR$/A.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A.java" beforeDir="false" afterPath="$PROJECT_DIR$/A.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/B.class" beforeDir="false" afterPath="$PROJECT_DIR$/B.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/khalid/usingthisreference.java" beforeDir="false" afterPath="$PROJECT_DIR$/khalid/usingthisreference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lecture/A.java" beforeDir="false" afterPath="$PROJECT_DIR$/lecture/A.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lecture/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/lecture/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,33 +25,26 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="187">
-                <caret line="1076" lean-forward="true" selection-start-line="1076" selection-end-line="1076" />
-                <folding>
-                  <element signature="e#189#190#0" expanded="true" />
-                  <element signature="e#215#216#0" expanded="true" />
-                  <element signature="e#297#298#0" expanded="true" />
-                  <element signature="e#326#327#0" expanded="true" />
-                  <element signature="e#70#71#0" expanded="true" />
-                  <element signature="e#98#99#0" expanded="true" />
-                  <element signature="e#129#130#0" expanded="true" />
-                  <element signature="e#187#188#0" expanded="true" />
-                  <element signature="e#657#658#0" expanded="true" />
-                  <element signature="e#714#715#0" expanded="true" />
-                  <element signature="e#53#54#0" expanded="true" />
-                  <element signature="e#124#125#0" expanded="true" />
-                </folding>
+                <caret line="1076" selection-start-line="1076" selection-end-line="1076" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/balaguruswamy/9 Arrays Strings and vectors/A.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="81">
-              <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+              <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lecture/A.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7" />
           </provider>
         </entry>
       </file>
@@ -219,11 +182,12 @@
       <workItem from="1568565925570" duration="2326000" />
       <workItem from="1568597989160" duration="3388000" />
       <workItem from="1568631163536" duration="12462000" />
+      <workItem from="1569248924342" duration="1508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44514000" />
+    <option name="totallyTimeSpent" value="46022000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -392,21 +356,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="187">
-            <caret line="1076" lean-forward="true" selection-start-line="1076" selection-end-line="1076" />
-            <folding>
-              <element signature="e#189#190#0" expanded="true" />
-              <element signature="e#215#216#0" expanded="true" />
-              <element signature="e#297#298#0" expanded="true" />
-              <element signature="e#326#327#0" expanded="true" />
-              <element signature="e#70#71#0" expanded="true" />
-              <element signature="e#98#99#0" expanded="true" />
-              <element signature="e#129#130#0" expanded="true" />
-              <element signature="e#187#188#0" expanded="true" />
-              <element signature="e#657#658#0" expanded="true" />
-              <element signature="e#714#715#0" expanded="true" />
-              <element signature="e#53#54#0" expanded="true" />
-              <element signature="e#124#125#0" expanded="true" />
-            </folding>
+            <caret line="1076" selection-start-line="1076" selection-end-line="1076" />
           </first_editor>
           <second_editor />
         </state>
@@ -415,8 +365,23 @@
     <entry file="file://$PROJECT_DIR$/balaguruswamy/9 Arrays Strings and vectors/A.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
-          <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lecture/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-1277">
+            <caret line="408" column="1" lean-forward="true" selection-start-line="408" selection-start-column="1" selection-end-line="408" selection-end-column="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lecture/A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7" />
       </provider>
     </entry>
   </component>
