@@ -61,6 +61,8 @@ class J
 		Object oops=(Object)x;
 		System.out.println(oops.toString());
 
+		
+
 
 	}
 }

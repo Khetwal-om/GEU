@@ -310,6 +310,432 @@ class A
 
 
 
+
+
+
+
+
+# sept 18  :+3:
+
+---
+1. A package is a separation of classes
+
+ by convention all package name must be small. If we are not creating user defined package in that case
+ all the classes will be part of default package representing current :+4: ?.
+
+ > One **class can use another class of same package** with any import statement.\
+ We can create our own package by using package creation as package followed by __package name__.\
+ :+8: Package creation should be the first statement of java program as package followed by package name.\
+ The package creation statement is placed even before import statement.\
+ We can create a package folder by the help of conditional compilation.\
+ A package can have n number of of classes. A class in same compilation unit can use another class. :+2:
+ 
+
+---
+
+
+# sept 19 :rocket:
+
+---
+
+1. We can place number of classes within a package and one class can access another class directly without
+any import . In order to use one package class by another package class we have to import a class successfully. __default means accesssible only within package__. :+1: 
+
+2. If class is public its method are not by default public and we know the meaning of default is only accessible within package.
+
+  Access specifier | public | protected | default | private 
+  ------------ | ------------ | ------------ | ------------ | ------------
+ |same class same package|yes|yes|yes|yes|
+ |diff class same package|yes|yes|yes|no|
+ |subclass same package|yes|yes|yes|no|
+ |diff class diff package|:+1:|:+1:|:+1:|:+1:|
+ |sub class diff package|:+1:|:+1:|:+1:|:+1:|
+ ||||||||
+
+
+
+1. __same class same package__
+
+ ```java
+
+ class A
+{
+	public static void main(String[] args) {
+		zero();
+		first();
+		second();
+		third();
+		}
+
+		static void zero()
+		{
+			System.out.println("within default method  |same class | same package");
+		}
+		public static void first()
+		{
+			System.out.println("within public method first  |same class | same package|");
+		}
+		protected  static void second()
+		{
+			System.out.println("within protected method second |same class |same packge");
+		}
+		private static  void third()
+		{
+			System.out.println("within private method third |same class |same package");
+		}
+
+	
+}
+
+
+
+within default method  |same class | same package
+within public method first  |same class | same package|
+within protected method second |same class |same packge
+within private method third |same class |same package
+
+```
+
+2. different class same package
+
+ 	
+	*this is with an error, :-1: error because private method is not accessible within different class
+	even if the package is same*
+
+```java
+class A
+{
+	public static void main(String[] args) {
+		
+		B obj=new B();
+
+		obj.zero();
+		obj.first();
+		obj.second();
+		obj.third();
+	
+}
+
+}
+
+class B
+{
+
+		static void zero()
+		{
+			System.out.println("within default method  |same class | same package");
+		}
+		public static void first()
+		{
+			System.out.println("within public method first  |same class | same package|");
+		}
+		protected  static void second()
+		{
+			System.out.println("within protected method second |same class |same packge");
+		}
+		private static  void third()
+		{
+			System.out.println("within private method third |same class |same package");
+		}
+
+}
+
+
+// A.java:10: error: third() has private access in B
+//                 obj.third();
+//                    ^
+// 1 error
+
+```
+
+	* this is without an error :+1: , Here rest three public,protected,default are available.*
+
+
+```java
+class A
+{
+	public static void main(String[] args) {
+		
+		B obj=new B();
+
+		obj.zero();
+		obj.first();
+		obj.second();
+	
+	
+}
+
+}
+
+class B
+{
+
+		static void zero()
+		{
+			System.out.println("within default method  |different | same package");
+		}
+		public static void first()
+		{
+			System.out.println("within public method first  |different class | same package|");
+		}
+		protected  static void second()
+		{
+			System.out.println("within protected method second |different class |same package");
+		}
+		
+
+}
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>java A
+within default method  |different class | same package
+within public method first  |different class | same package|
+within protected method second |different class |same package
+```
+
+
+
+3. subclass same package
+
+ **private method is not available for the subclass**
+
+```java
+class A
+{
+	public static void main(String[] args) {
+		
+	
+	C obj=new C();
+}
+
+}
+
+class B 
+{
+
+		static void zero()
+		{
+			System.out.println("within default method  |sub class | same package");
+		}
+		public static void first()
+		{
+			System.out.println("within public method first  |sub class | same package|");
+		}
+		protected  static void second()
+		{
+			System.out.println("within protected method second |sub class |same packge");
+		}
+		private static void third()
+		{
+			System.out.println("within private method third | sub class |same package");
+		}
+		
+
+}
+class C extends B
+{
+	{
+		zero();
+		first();
+		second();
+		third();
+	}
+}
+
+
+
+A.java:39: error: cannot find symbol
+                third();
+                ^
+  symbol:   method third()
+  location: class C
+1 error
+
+```
+  **This is valid**
+
+```java
+class A
+{
+	public static void main(String[] args) {
+		
+	
+	C obj=new C();
+}
+
+}
+
+class B 
+{
+
+		static void zero()
+		{
+			System.out.println("within default method  |sub class | same package");
+		}
+		public static void first()
+		{
+			System.out.println("within public method first  |sub class | same package|");
+		}
+		protected  static void second()
+		{
+			System.out.println("within protected method second |sub class |same packge");
+		}
+
+		
+
+}
+class C extends B
+{
+	{
+		zero();
+		first();
+		second();
+
+	}
+}
+
+
+
+within default method  |sub class | same package
+within public method first  |sub class | same package|
+within protected method second |sub class |same packge
+
+```
+
+4. Different class different package
+
+  *class English within package languageA*
+
+```java
+
+package languageA;
+
+public class English
+{
+	public static void main(String[] args) {
+
+
+	}
+
+		static void zero()
+		{
+			System.out.println("within default method  |different class | different package");
+		}
+		public static void first()
+		{
+			System.out.println("within public method first  |different class | different package|");
+		}
+		protected  static void second()
+		{
+			System.out.println("within protected method second |different class |different packge");
+		}
+		private static void third()
+		{
+			System.out.println("within private method third  | different class | different package");
+		}
+
+}
+
+
+
+```
+	
+
+
+5. **subclass different package**
+
+
+	* class Spanish within package languageB*
+
+> In different class diffferent package only public method is available.
+
+```java
+package languageB;
+import languageA.*;
+public class Spanish
+{
+	public static void main(String[] args) {
+		English obj=new English();
+
+		obj.zero();
+		obj.first();
+		obj.second();
+		obj.third();
+	}
+}
+
+
+
+Spanish.java:8: error: zero() is not public in English; cannot be accessed from outside package
+                obj.zero();
+                   ^
+Spanish.java:10: error: second() has protected access in English
+                obj.second();
+                   ^
+Spanish.java:11: error: third() has private access in English
+                obj.third();
+                   ^
+3 errors
+
+```
+
+	*If we extend English in spanish then public and protected methods are accessible*
+
+```java
+package languageB;
+import languageA.*;
+public class Spanish extends English
+{
+	public static void main(String[] args) {
+		English obj=new English();
+
+		obj.zero();
+		obj.first();
+		obj.second();
+		obj.third();
+	}
+}
+
+
+
+
+
+Spanish.java:8: error: zero() is not public in English; cannot be accessed from outside package
+                obj.zero();
+                   ^
+Spanish.java:11: error: third() has private access in English
+                obj.third();
+                   ^
+2 errors
+```
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # sept 20     :+1:     Exception Handling
 
 ---
@@ -345,6 +771,7 @@ that may generate an exception.
 
 * try can be used in the following ways:
 
+1. The first one
 
 ```java
 
@@ -359,7 +786,7 @@ catch(Exception e)
 
 ```
 
-
+2. Second one
 
 ```java
 try
@@ -370,12 +797,112 @@ catch (ExceptionType1 e1)
 {
 
 }
+catch( ExceptionType2 e2)
+{
+
+}
+```
+
+3. Third 
+
+```java
+
+try
+{
+
+}
+catch(Exception e)
+{
+
+}
+finally
+{}
+```
+
+4. Fourth
+
+```java
+
+try
+{
+
+}
+catch (RuntimeException e)
+{
+
+}
+catch()
+{
+
+}
+....
+catch(Exception e)
+{
+
+}
+finally
+{
+
+}
+```
+
+5. Fifth one :sparkles:
+
+```java
+
+```
+
+---
+
+
+
+2. We can nest one try within another . The outer try can use outer  catch but **outer try can't use
+inner catch.**
+
+```java
+
+class A
+{
+	public static void main(String[] args) {
+		
+		System.out.println("1");
+		try{
+			System.out.println("2");
+			try
+			{
+				System.out.println(5/0);
+			}
+			catch(NullPointerException obj)
+			{
+				System.out.println(obj);
+			}
+			System.out.println("3");
+		}
+		catch(Exception obj)
+		{
+			System.out.println(obj);
+		}
+		System.out.println("5");
+
+	}
+}
+
+// 1
+// 2
+// java.lang.ArithmeticException: / by zero
+// 5
+
 ```
 
 
 
+3. We can use finally block **with a try or with try catch** . 
 
----
+> **Finally block never handle exception.** It is a block which is always executed . \
+  Exception occurs or not it doesn't matter for finally to get executed.
+
+
+
 
 
 
