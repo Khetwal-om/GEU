@@ -4,8 +4,6 @@ class Light
 	private boolean indicator;
 	protected String location;
 	private static int counter;
-
-
 	Light()
 	{
 		noOfWatts=50;

@@ -1153,3 +1153,747 @@ class A
 
 
 ```
+
+
+---
+
+# Sept 26
+
+1. If a method is throwing checked or unchecked exception it should be handled by the help or try
+catch. If exception is under category unchecked like runtime exception it is not mandatory to provide 
+try and catch at compile time. __JVM__ can handle it :+1:   
+ __If exception are under category checked it is vital to tell at compile time using try catch that how
+ you will handle it at runtime__
+
+ > If a method is not capable to handle exception under category checked it must guard to all calling
+ methods using throws keyword.\
+ If a method is not throwing exception and using throws clause it should be handled properly.
+
+
+2. A **Constructor** can also throw an exception.
+
+```java
+
+public class A
+{
+	public static void main(String[] args) {
+		
+		try
+		{
+		B b=new B();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+
+	
+	}
+}
+
+
+class B
+{	
+	B() throws Exception
+	{
+
+	}
+
+}
+```
+
+3. We can throw __Custom exceptions__ on some user condition , a method can throw more than 
+one exception checked or unchecked , implicitly or explicitly.
+ If it is under category checked it should be handled at compile time.
+
+4. We we create object of a class and print that object it internally calls **toString()** method
+ and prints hexadecimal address using hex method.
+
+```java
+
+public class A
+{
+	public static void main(String[] args) {
+		
+	
+		B obj=new B();
+		long l=obj.hashCode();
+		String hexstring=Integer.toHexString((int)l);
+		String name=obj.getClass().getName();
+		System.out.println(name+"@"+hexstring);
+
+		System.out.println(obj);
+
+	}
+}
+
+
+class B
+{	
+
+
+}
+
+B@4cc77c2e
+B@4cc77c2e
+
+
+
+```
+
+
+---
+
+
+
+# sept 27
+
+    :disappointed:
+
+---
+
+ :expressionless: File Operations :unamused:
+   
+
+1. We can manage input output operation on some 
+standard input output devices by the help of several stream classes. The two types of stream classes are :
+
+> :+1:  Character stream    :smile: Byte stream(8 bit data) \
+ The two predefined streams can be used directly to manipulate iput output operation. These are
+ 	__system.in__ _output stream_ and __system.out__ , __system.err__ ( _input stream_) . \
+ __System.in__ is by default associated with *keyboard* while __System.out__ and __System.err__ are associated with *monitor*.
+
+
+
+
+2. We can redirect output of type *out* to a file. Output of type *err* will be visible on 
+ *monitor*.
+
+3. We can read from a keyboard using *System.in*
+ As we know *System.in* is an object of Input Stream.
+
+4. Read method returns __Integer Value__ . It's
+an Integer value *equivalent* to __ASCII__ of readed character. We can read from a file or from a :+1: *keyboard buffer* . All reading will be in sequence as we know file are accessed sequentially.
+> If we give 'a' as input and press enter \
+  *\r*   - carriage return ASCII value  13\
+  *\n*   - new line return ASCII value  10
+
+5. We can read and write from keyboard and to monitor as well as file can be used as a standard *input/output* device.
+
+6. We can create a file by the help of java program in order to perform *input/output* operation.
+
+7. File is a class and can be used to create a file or a directory.
+
+
+```java
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		
+		File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/textfilecreated.txt");
+		System.out.println(f.createNewFile());
+
+	}
+}
+
+```
+
+---
+
+ :joy:  __Before__
+
+//  Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+// 09/27/2019  07:46 PM    <DIR>          .
+// 09/27/2019  07:46 PM    <DIR>          ..
+// 09/27/2019  01:44 PM               186 A.java
+// 09/27/2019  07:42 PM            23,951 README.md
+// 09/27/2019  07:46 PM               249 S.java
+//                3 File(s)         24,386 bytes
+//                2 Dir(s)  67,851,816,960 bytes free
+
+
+:imp: 	__after__
+
+Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  07:46 PM    <DIR>          .
+09/27/2019  07:46 PM    <DIR>          ..
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  07:42 PM            23,951 README.md
+09/27/2019  07:46 PM               595 S.class
+09/27/2019  07:46 PM               669 S.java
+09/27/2019  07:46 PM                 0 textfilecreated.txt
+               5 File(s)         25,401 bytes
+               2 Dir(s)  67,851,816,960 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>
+
+---
+
+8. We can create a file within a directory provided the directory should *exist* . We can create a 
+directory by the help of *File* class object.
+
+```java
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		
+		File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/findmeinparis");
+		System.out.println(f.mkdir());
+
+	}
+}
+
+```
+
+---
+
+Before :-1:
+
+
+ Volume Serial Number is 387F-AED0
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  07:46 PM    <DIR>          .
+09/27/2019  07:46 PM    <DIR>          ..
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  07:50 PM            25,584 README.md
+09/27/2019  07:46 PM               595 S.class
+09/27/2019  07:51 PM               237 S.java
+09/27/2019  07:46 PM                 0 textfilecreated.txt
+               5 File(s)         26,602 bytes
+               2 Dir(s)  67,851,812,864 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>javac S.java
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>java S
+true
+
+
+:imp: __After__
+
+
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  07:51 PM    <DIR>          .
+09/27/2019  07:51 PM    <DIR>          ..
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  07:51 PM    <DIR>          findmeinparis
+09/27/2019  07:50 PM            25,584 README.md
+09/27/2019  07:51 PM               581 S.class
+09/27/2019  07:51 PM               237 S.java
+09/27/2019  07:46 PM                 0 textfilecreated.txt
+               5 File(s)         26,588 bytes
+               3 Dir(s)  67,851,812,864 bytes free
+
+
+---
+
+9. Use of __mkdirs()__ to create multiple directories.
+
+ :sunglasses: :dizzy_face:          :imp:
+    :smiling_imp:
+    :neutral_face:
+    :no_mouth:
+    :innocent:
+    :alien:
+    :yellow_heart:
+    :blue_heart:
+
+
+```java
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		
+		File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/a/aa/aaa");
+		System.out.println(f.mkdirs());
+
+	}
+}
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>dir
+ Volume in drive D is CRISTIANO
+ Volume Serial Number is 387F-AED0
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  07:51 PM    <DIR>          .
+09/27/2019  07:51 PM    <DIR>          ..
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  07:51 PM    <DIR>          findmeinparis
+09/27/2019  07:54 PM            27,121 README.md
+09/27/2019  07:51 PM               581 S.class
+09/27/2019  07:54 PM               229 S.java
+09/27/2019  07:46 PM                 0 textfilecreated.txt
+               5 File(s)         28,117 bytes
+               3 Dir(s)  67,851,812,864 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>javac S.java
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>java S
+true
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>dir
+ Volume in drive D is CRISTIANO
+ Volume Serial Number is 387F-AED0
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  07:55 PM    <DIR>          .
+09/27/2019  07:55 PM    <DIR>          ..
+09/27/2019  07:55 PM    <DIR>          a
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  07:51 PM    <DIR>          findmeinparis
+09/27/2019  07:54 PM            27,121 README.md
+09/27/2019  07:55 PM               577 S.class
+09/27/2019  07:54 PM               229 S.java
+09/27/2019  07:46 PM                 0 textfilecreated.txt
+               5 File(s)         28,113 bytes
+               4 Dir(s)  67,851,812,864 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>cd a
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture\a>dir
+ Volume in drive D is CRISTIANO
+ Volume Serial Number is 387F-AED0
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture\a
+
+09/27/2019  07:55 PM    <DIR>          .
+09/27/2019  07:55 PM    <DIR>          ..
+09/27/2019  07:55 PM    <DIR>          aa
+               0 File(s)              0 bytes
+               3 Dir(s)  67,851,812,864 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture\a>cd aa
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture\a\aa>dir
+ Volume in drive D is CRISTIANO
+ Volume Serial Number is 387F-AED0
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture\a\aa
+
+09/27/2019  07:55 PM    <DIR>          .
+09/27/2019  07:55 PM    <DIR>          ..
+09/27/2019  07:55 PM    <DIR>          aaa
+               0 File(s)              0 bytes
+               3 Dir(s)  67,851,812,864 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture\a\aa>
+```
+
+
+
+
+10. 
+
+
+
+
+
+
+
+
+
+# Create a new file
+
+```java
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/Jio.txt");
+		System.out.println(f.createNewFile());  //true 
+	}
+}
+```
+
+
+11. What if we name the directory as "a.file".
+
+  :rage1:
+    :rage2:
+    :rage3:
+    :rage4:
+    :suspect:
+    :trollface:
+
+
+    *notice a.file is dir*
+
+
+```java
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		
+		File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/a.file");
+		System.out.println(f.mkdir());
+
+	}
+}
+
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>dir
+ Volume in drive D is CRISTIANO
+ Volume Serial Number is 387F-AED0
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  07:59 PM    <DIR>          .
+09/27/2019  07:59 PM    <DIR>          ..
+09/27/2019  07:55 PM    <DIR>          a
+09/27/2019  07:59 PM    <DIR>          a.file
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  07:51 PM    <DIR>          findmeinparis
+09/27/2019  07:58 PM            30,341 README.md
+09/27/2019  07:59 PM               574 S.class
+09/27/2019  07:58 PM               230 S.java
+09/27/2019  07:46 PM                 0 textfilecreated.txt
+               5 File(s)         31,331 bytes
+               5 Dir(s)  67,851,808,768 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>
+```
+
+
+
+12. We can display the data of file.
+
+```java
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		
+		File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/textfilecreated.txt");
+		FileReader fr=new FileReader(f);
+		int k;
+
+		while((k=fr.read())!=-1)
+		{
+			System.out.println(k);
+		}
+	}
+}
+
+
+97
+98
+99
+100
+101
+102
+103
+104
+105
+13  // carriage return       /r
+10  // new line              /n 
+
+```
+
+13. The whole file can be displayed as
+
+```java
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		
+		File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/S.java");
+		FileReader fr=new FileReader(f);
+		int k;
+
+		while((k=fr.read())!=-1)
+		{
+			System.out.print((char)k);
+		}
+	}
+}
+
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>javac S.java
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>java S
+import java.io.*;
+
+
+class S
+{
+        public static void main(String[] args)  throws IOException
+         {
+
+                File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/S.java");
+                FileReader fr=new FileReader(f);
+                int k;
+
+                while((k=fr.read())!=-1)
+                {
+                        System.out.print((char)k);
+                }
+        }
+}
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>
+
+```
+
+
+14. Some of the methods
+
+:pouting_cat:
+    :japanese_ogre:
+    :japanese_goblin:
+    :see_no_evil:
+    :hear_no_evil:
+    :speak_no_evil:
+
+```java
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		
+		File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture/S.java");
+
+		System.out.println(f.length());
+		System.out.println(f.isFile());
+		System.out.println(f.isDirectory());
+		System.out.println(f.getAbsolutePath());
+
+	}
+}
+
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>java S
+352
+true
+false
+D:\GEU\Semester_fifth\core-java-concepts\lecture\S.java
+
+
+```
+
+
+---
+
+```java
+
+import java.io.*;
+
+
+class S
+{
+	public static void main(String[] args)	throws IOException
+	 {
+		
+		File f=new File("octave.txt");
+
+		System.out.println(f.length());
+		System.out.println(f.isFile());
+		System.out.println(f.isDirectory());
+		System.out.println(f.getAbsolutePath());
+
+
+		File obj=new File("nova.txt");
+		System.out.println(f.renameTo(obj));
+
+	}
+}
+
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>dir
+ Volume in drive D is CRISTIANO
+ Volume Serial Number is 387F-AED0
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  08:22 PM    <DIR>          .
+09/27/2019  08:22 PM    <DIR>          ..
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  08:09 PM                 5 octave.txt
+09/27/2019  08:16 PM            33,551 README.md
+09/27/2019  08:22 PM               783 S.class
+09/27/2019  08:22 PM               381 S.java
+               5 File(s)         34,906 bytes
+               2 Dir(s)  67,851,800,576 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>javac S.java
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>java S
+5
+true
+false
+D:\GEU\Semester_fifth\core-java-concepts\lecture\octave.txt
+true
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>dir
+ Volume in drive D is CRISTIANO
+ Volume Serial Number is 387F-AED0
+
+ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  08:23 PM    <DIR>          .
+09/27/2019  08:23 PM    <DIR>          ..
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  08:09 PM                 5 nova.txt
+09/27/2019  08:16 PM            33,551 README.md
+09/27/2019  08:22 PM               783 S.class
+09/27/2019  08:22 PM               381 S.java
+               5 File(s)         34,906 bytes
+               2 Dir(s)  67,851,800,576 bytes free
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>
+```
+
+---
+
+
+15. *list vs ListFile*
+
+---
+
+```java
+
+import java.io.*;
+
+public class S
+{
+	public static void main(String[] args) {
+		
+	 File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture");
+	 String s[]=null;
+
+	 if (f.isDirectory())
+	 {
+	 	s=f.list();
+	 }
+
+	 for(String r:s)
+	 {
+	 	System.out.println(r);
+	 }
+	}
+}
+
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>java S
+A.java
+nova.txt
+README.md
+S.class
+S.java
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>
+
+```
+
+*listFiles() returns the absolute path of files*
+
+```java
+import java.io.*;
+
+public class S
+{
+	public static void main(String[] args) {
+		
+	 File f=new File("D:/GEU/Semester_fifth/core-java-concepts/lecture");
+	 File wow[]=null;
+
+
+	 if (f.isDirectory())
+	 {
+	 	wow=f.listFiles();
+	 }
+
+	 for(File r:wow)
+	 {
+	 	System.out.println(r);
+	 }
+	}
+}
+
+
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>java S
+D:\GEU\Semester_fifth\core-java-concepts\lecture\A.java
+D:\GEU\Semester_fifth\core-java-concepts\lecture\nova.txt
+D:\GEU\Semester_fifth\core-java-concepts\lecture\README.md
+D:\GEU\Semester_fifth\core-java-concepts\lecture\S.class
+D:\GEU\Semester_fifth\core-java-concepts\lecture\S.java
+
+D:\GEU\Semester_fifth\core-java-concepts\lecture>
+```
+
+---
+
+16. A file can be used as an input/output device i.e., data can be readed from it. To perform input/output operation two types of *streams* are used:
+
+> *Byte*\
+*Stream*
+
+17. **Stream** is sequence of data when we are using Character stream we are dealing with 16 bit while we deal with byte it is *8bit*.
+
+18. Inorder to use stream we should follow
+
+> openStream()\
+ useStream()\
+ closeStream()
+
+19. There are several classes in support of these
+stream category.
+
+Reader  read()  | Writer    write()
+ ------------ | ------------
+InputStreamReader | OutPutStreamWriter
+FileReader        |  PrintWriter
+BufferedReader  | FileStreamWriter
+
+
+
+20. FileReader and FileWrite class can be used to read and write to file.
+
+21. If  file exist and have no content means is empty then read method returns -1.
+
+
+
+---
