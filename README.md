@@ -107,7 +107,7 @@ A.java:6: error: variable obj is already defined in method main(String[])
 1 error
 ```
 
-> Can do this
+> Can do this , __here new memory is assigned to the object obj__ .
 
 
 ```java
@@ -131,6 +131,84 @@ class B
 	}
 }
 ```
+
+**Check the output**
+
+```java
+public class A
+{
+	public static void main(String args[])
+	{
+		B obj=new B();
+		System.out.println(obj); // 	 B@6bc168e5
+		obj=new B();
+		System.out.println(obj); //      B@7b3300e5
+
+	}
+}
+
+
+class B
+{
+	int i;
+
+	B(){
+		System.out.println("This is the constructor B");
+	}
+
+	
+}
+
+// This is the constructor B
+// B@6bc168e5
+// This is the constructor B
+// B@7b3300e5
+```
+
+---
+
+## I got a situation.
+
+
+1. We can declare a function with same name as that of the **class**.   ?
+
+```java
+public class A
+{
+	public static void main(String args[])
+	{
+		B obj=new B();
+		obj.B();
+
+	}
+}
+
+
+class B
+{
+	int i;
+
+	B(){
+		System.out.println("This is the constructor B");
+	}
+
+	void B(){
+		System.out.println("This is the method B ");
+	}
+
+	
+}
+
+
+
+This is the constructor B
+This is the method B
+
+```
+
+
+---
+
 
 3. We can initialize variable of class through block also.
 
